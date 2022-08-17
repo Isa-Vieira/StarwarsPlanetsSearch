@@ -5,7 +5,7 @@ import starWarsApi from './starWarsApi';
 
 function StarWarsProvider({ children }) {
   const [statePlanets, setStatePlanets] = useState([]);
-
+  const [filterByName, setFilterByName] = useState('');
   useEffect(() => {
     const chamaApi = async () => {
       const response = await starWarsApi();
@@ -17,7 +17,7 @@ function StarWarsProvider({ children }) {
 
   return (
     <StarWarsContext.Provider
-      value={ { statePlanets } }
+      value={ { statePlanets, filterByName, setFilterByName } }
     >
       {children}
     </StarWarsContext.Provider>

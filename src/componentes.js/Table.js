@@ -3,7 +3,7 @@ import StarWarsContext from './StarWarsContext';
 
 function Table() {
   const { statePlanets } = useContext(StarWarsContext);
-  console.log(statePlanets);
+  const { filterByName } = useContext(StarWarsContext);
 
   return (
     <table>
@@ -25,24 +25,25 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-        {statePlanets.map((param) => (
-          <tr key={ param.name }>
-            <td>{param.name}</td>
-            <td>{param.rotation_period }</td>
-            <td>{param.orbital_period }</td>
-            <td>{param.diameter}</td>
-            <td>{param.climate}</td>
-            <td>{param.gravity}</td>
-            <td>{param.terrain}</td>
-            <td>{param.surface_water}</td>
-            <td>{param.population}</td>
-            <td>{param.films}</td>
-            <td>{param.created}</td>
-            <td>{param.edited}</td>
-            <td>{param.url}</td>
-          </tr>
+        {statePlanets.filter(({ name }) => name.includes(filterByName))
+          .map((param) => (
+            <tr key={ param.name }>
+              <td>{param.name}</td>
+              <td>{param.rotation_period }</td>
+              <td>{param.orbital_period }</td>
+              <td>{param.diameter}</td>
+              <td>{param.climate}</td>
+              <td>{param.gravity}</td>
+              <td>{param.terrain}</td>
+              <td>{param.surface_water}</td>
+              <td>{param.population}</td>
+              <td>{param.films}</td>
+              <td>{param.created}</td>
+              <td>{param.edited}</td>
+              <td>{param.url}</td>
+            </tr>
 
-        ))}
+          ))}
       </tbody>
     </table>
 
