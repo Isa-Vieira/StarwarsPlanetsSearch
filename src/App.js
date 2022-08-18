@@ -9,10 +9,6 @@ function App() {
   return (
 
     <StarWarsProvider>
-
-      <span>
-        Hello, App!
-      </span>
       <MenuPage />
       <ValoresNumericos />
       <Table />
