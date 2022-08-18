@@ -6,6 +6,12 @@ import starWarsApi from './starWarsApi';
 function StarWarsProvider({ children }) {
   const [statePlanets, setStatePlanets] = useState([]);
   const [filterByName, setFilterByName] = useState('');
+  const [filterByNumericValues, setfilterByNumericValues] = useState([{
+    column: 'population',
+    comparison: 'maior que',
+    value: '0',
+  }]);
+
   useEffect(() => {
     const chamaApi = async () => {
       const response = await starWarsApi();
@@ -17,7 +23,12 @@ function StarWarsProvider({ children }) {
 
   return (
     <StarWarsContext.Provider
-      value={ { statePlanets, filterByName, setFilterByName } }
+      value={ { statePlanets,
+        filterByName,
+        setFilterByName,
+        filterByNumericValues,
+        setfilterByNumericValues,
+        setStatePlanets } }
     >
       {children}
     </StarWarsContext.Provider>

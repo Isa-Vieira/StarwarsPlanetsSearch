@@ -3,6 +3,7 @@ import './App.css';
 import MenuPage from './componentes.js/MenuPage';
 import StarWarsProvider from './componentes.js/StarWarsProvider';
 import Table from './componentes.js/Table';
+import ValoresNumericos from './componentes.js/ValoresNumericos';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         Hello, App!
       </span>
       <MenuPage />
+      <ValoresNumericos />
       <Table />
 
     </StarWarsProvider>
