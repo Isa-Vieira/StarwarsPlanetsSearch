@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import StarWarsContext from './StarWarsContext';
 
 function ValoresNumericos() {
@@ -6,6 +6,9 @@ function ValoresNumericos() {
     setfilterByNumericValues,
     setStatePlanets,
     statePlanets } = useContext(StarWarsContext);
+  const [filterStateValue, setFilterValue] = useState([
+    'population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water',
+  ]);
 
   const handleChange = ({ target }) => {
     /* console.log(target.name); */
@@ -16,6 +19,15 @@ function ValoresNumericos() {
   const buttonFilterOnClick = () => {
     const { comparison, value, column } = filterByNumericValues[0];
     const newArray = [];
+    const newObject = [...filterByNumericValues];
+    const newArrayOptions = [...filterStateValue];
+    const removeFilter = filterStateValue.indexOf(column);
+    newArrayOptions.splice(removeFilter, 1);
+    /* console.log(newArrayOptions); */
+    newObject[0] = { ...newObject[0], column: newArrayOptions[0] };
+    setFilterValue(newArrayOptions);
+    setfilterByNumericValues(newObject);
+
     if (comparison === 'maior que') {
       statePlanets.forEach((element) => {
         if (Number(element[column]) > Number(value)) {
@@ -43,11 +55,10 @@ function ValoresNumericos() {
   return (
     <form>
       <select name="column" onChange={ handleChange } data-testid="column-filter">
-        <option>population</option>
-        <option>orbital_period</option>
-        <option>diameter</option>
-        <option>rotation_period</option>
-        <option>surface_water</option>
+
+        { filterStateValue.map((param) => (
+          <option key={ param } value={ param }>{ param }</option>))}
+
       </select>
       <select name="comparison" onChange={ handleChange } data-testid="comparison-filter">
         <option>maior que</option>
