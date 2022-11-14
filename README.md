@@ -1,10 +1,4 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+##  Olá, seja bem-vindo(a) ao projeto StarwarsPlanetsSearch!
+
+Iremos desenvolver uma lista com filtros de planetas do universo de Star Wars usando Context API e Hooks para controlar os estados globais.
+![Captura de tela de 2022-11-14 14-39-48](https://user-images.githubusercontent.com/102389971/201728640-67317fcd-c8ff-4cc1-8337-551cefb2601b.png)
